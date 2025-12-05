@@ -1,0 +1,56 @@
+# -------------------------
+# 공통 설정
+# -------------------------
+node_modules/
+dist/
+build/
+.tmp/
+temp/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.pnpm-debug.log
+
+# 환경 변수 파일
+.env
+.env.local
+.env.*
+.env.*.local
+
+# OS 관련
+.DS_Store
+Thumbs.db
+
+# IDE/Editor 관련
+.vscode/
+.idea/
+*.swp
+
+# -------------------------
+# Frontend (React + Vite + TS)
+# -------------------------
+# Vite cache
+.vite/
+# Coverage reports
+coverage/
+# TypeScript build info
+tsconfig.tsbuildinfo
+
+# -------------------------
+# Backend (NestJS)
+# -------------------------
+# NestJS build output
+dist/
+# Debug files
+*.pid
+*.seed
+*.pid.lock
+
+# -------------------------
+# Docker 관련
+# -------------------------
+# Docker volumes, overrides
+docker-compose.override.yml
