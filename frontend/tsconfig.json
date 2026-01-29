@@ -5,7 +5,7 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "types": ["node"],
+    "types": ["node", "react", "react-dom"],
     "strict": true,
     "moduleResolution": "node",
     "jsx": "react-jsx",

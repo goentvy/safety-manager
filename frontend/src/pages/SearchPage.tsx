@@ -11,17 +11,24 @@ export default function SearchPage() {
   const [results, setResults] = useState<LawItem[]>([]);
 
   const handleSearch = async () => {
-    // const apiKey = import.meta.env.VITE_API_KEY;
-    // const url = `https://apis.data.go.kr/B552468/lawSmartSearch/getLawSmartSearch?serviceKey=${apiKey}&search=${encodeURIComponent(query)}&type=json`;
+    try {
+      const res = await fetch(`http://localhost:4000/law/search?q=${encodeURIComponent(query)}`);
+      const data = await res.json();
 
-    const res = await fetch('http://localhost:4000/law/search?q=테스트', {
-      method: 'GET',
-      credentials: 'include',
-    });
-    const data = await res.json();
-    const items: LawItem[] = data.response.body.items.item || [];
-    setResults(items);
+      if (!res.ok) {
+        console.error("API Error:", data.error);
+        setResults([]); // 실패 시 빈 배열
+        return;
+      }
+
+      setResults(data.items ?? []); // 성공 시 items만 접근
+    } catch (err) {
+      console.error("Fetch failed:", err);
+      setResults([]);
+    }
   };
+
+
 
   return (
     <div className="max-w-2xl mx-auto p-6">

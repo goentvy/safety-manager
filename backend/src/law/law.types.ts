@@ -4,10 +4,10 @@ export interface LawItem {
 }
 
 export interface LawResponse {
-  response: {
-    body: {
-      items: {
-        item: LawItem[];
+  response?: {
+    body?: {
+      items?: {
+        item?: LawItem[];
       };
     };
   };
